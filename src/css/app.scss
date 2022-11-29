@@ -1,0 +1,52 @@
+// app global css in SCSS form
+@font-face {
+  font-family: 'SpoqaHanSans';
+  font-weight: 700;
+  src: local('SpoqaHanSans Bold'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Bold.woff2')
+      format('woff2'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Bold.woff')
+      format('woff'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Bold.ttf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'SpoqaHanSans';
+  font-weight: 400;
+  src: local('SpoqaHanSans Regular'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Regular.woff2')
+      format('woff2'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Regular.woff')
+      format('woff'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Regular.ttf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'SpoqaHanSans';
+  font-weight: 300;
+  src: local('SpoqaHanSans Light'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Light.woff2')
+      format('woff2'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Light.woff')
+      format('woff'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Light.ttf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'SpoqaHanSans';
+  font-weight: 100;
+  src: local('SpoqaHanSans Thin'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Thin.woff2')
+      format('woff2'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Thin.woff')
+      format('woff'),
+    url('../css/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Thin.ttf')
+      format('truetype');
+}
+
+body {
+  font-family: 'SpoqaHanSans';
+}
