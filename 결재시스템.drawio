@@ -1,0 +1,22 @@
+<mxfile host="65bd71144e">
+    <diagram id="X5eTCNePLSnSduST2UU7" name="페이지-1">
+        <mxGraphModel dx="1037" dy="518" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="결재 시스템" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="20" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="휴가, 출장" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="직금 이름" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="340" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="SudoCode. 결재&lt;br&gt;1. 어떤 보고를 할지 선택한다.&lt;br&gt;2. 어떤 사람에게 결재를 받을지 선택. ( 차장, 부장, 과장, 대표 )&lt;br&gt;3. 결재를 하면 보고한 사람에게 푸쉬 알림이 간다.&amp;nbsp;&amp;nbsp;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="130" width="100" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

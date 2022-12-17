@@ -1,6 +1,35 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import DrawerItem from 'components/DrawerItem.vue';
+type drawItemType = {
+  name: string;
+  icon: string;
+  index: number;
+  to: string;
+};
+
+const drawItems = ref<drawItemType[]>([
+  {
+    name: 'dashBoard',
+    icon: 'star',
+    index: 1,
+    to: 'main/dashboard',
+  },
+  {
+    name: 'Notion',
+    icon: 'done',
+    index: 2,
+    to: 'main/notion',
+  },
+  {
+    name: '휴가',
+    icon: 'done',
+    index: 3,
+    to: 'main/vacation',
+  },
+]);
 const drawer = ref(false);
+
 const toggleLeftDrawer = () => {
   drawer.value = !drawer.value;
 };
@@ -8,59 +37,23 @@ const toggleLeftDrawer = () => {
 
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header elevated class="bg-primary text-white" height-hint="98">
+    <q-header elevated class="bg-primary text-black" height-hint="98">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
-          <q-avatar>
+          <q-avatar color="black">
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
           </q-avatar>
           Title
         </q-toolbar-title>
       </q-toolbar>
-
-      <q-tabs align="left">
-        <q-route-tab to="/page1" label="Page One" />
-        <q-route-tab to="/page2" label="Page Two" />
-        <q-route-tab to="/page3" label="Page Three" />
-      </q-tabs>
     </q-header>
 
     <q-drawer v-model="drawer" show-if-above :width="200" :breakpoint="500">
       <q-scroll-area class="fit">
         <q-list padding class="menu-list">
-          <q-item clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="inbox" />
-            </q-item-section>
-
-            <q-item-section> Inbox </q-item-section>
-          </q-item>
-
-          <q-item active clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="star" />
-            </q-item-section>
-
-            <q-item-section> Star </q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send" />
-            </q-item-section>
-
-            <q-item-section> Send </q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="drafts" />
-            </q-item-section>
-
-            <q-item-section> Drafts </q-item-section>
-          </q-item>
+          <DrawerItem :drawer-items="drawItems" />
         </q-list>
       </q-scroll-area>
     </q-drawer>
@@ -71,7 +64,12 @@ const toggleLeftDrawer = () => {
   </q-layout>
 </template>
 
-<style lang="sass" scoped>
-.menu-list .q-item
-  border-radius: 0 32px 32px 0
+<style scoped>
+.menu-list .q-item {
+  border-radius: 0 32px 32px 0;
+}
+
+.active {
+  color: black;
+}
 </style>

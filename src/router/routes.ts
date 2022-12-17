@@ -1,13 +1,28 @@
 import { RouteRecordRaw } from 'vue-router';
-
+import VacationPage from 'components/VacationPage.vue';
+import NotionClone from 'components/NotionClone.vue';
+import MainLayout from 'layouts/MainLayout.vue';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/LoginLayout.vue'),
-    // component: () => import('layouts/MainLayout.vue'),
+    redirect: 'signin',
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: 'signin', component: () => import('components/LoginForm.vue') },
+      { path: 'signup', component: () => import('components/JoinForm.vue') },
+      // { path: '', component: () => import('pages/IndexPage.vue') },
       // { path: '/login', component: () => }
+    ],
+  },
+  {
+    path: '/main',
+    component: MainLayout,
+    children: [
+      { path: 'notion', component: NotionClone },
+      {
+        path: 'vacation',
+        component: VacationPage,
+      },
     ],
   },
 

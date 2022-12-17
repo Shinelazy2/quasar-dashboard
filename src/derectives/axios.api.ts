@@ -1,4 +1,4 @@
-import { axios, api } from 'src/boot/axios';
+import { api } from 'src/boot/axios';
 
 interface LoginResponse {
   data?: string | string[] | any;

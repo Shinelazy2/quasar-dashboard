@@ -13,6 +13,13 @@ export const useAuthStore = defineStore('auth', {
   }),
   actions: {
     //
+    loginUser(loginId: string, at: string, rt: string) {
+      this.user.push({
+        loginId,
+        at,
+        rt,
+      });
+    },
     joinUser(loginId: string, at: string, rt: string) {
       this.user.push({
         loginId,
