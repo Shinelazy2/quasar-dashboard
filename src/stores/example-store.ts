@@ -1,11 +1,9 @@
-import { ref, computed } from 'vue';
-import { defineStore } from 'pinia';
+import { ref, computed } from 'vue'
+import { defineStore } from 'pinia'
 
 export type User = {
-  loginId: string;
-  at: string;
-  rt: string;
-};
+  loginId: string
+}
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -13,28 +11,24 @@ export const useAuthStore = defineStore('auth', {
   }),
   actions: {
     //
-    loginUser(loginId: string, at: string, rt: string) {
+    loginUser(loginId: string) {
       this.user.push({
         loginId,
-        at,
-        rt,
-      });
+      })
     },
-    joinUser(loginId: string, at: string, rt: string) {
+    joinUser(loginId: string) {
       this.user.push({
         loginId,
-        at,
-        rt,
-      });
+      })
     },
     findLoginUser() {
       console.log(
         '🚀 ~ file: authStore.ts ~ line 23 ~ findLoginUser ~ user',
-        this.user
-      );
+        this.user,
+      )
     },
   },
   getters: {
     //
   },
-});
+})

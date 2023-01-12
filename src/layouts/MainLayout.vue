@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import DrawerItem from 'components/DrawerItem.vue';
+import { ref } from 'vue'
+import DrawerItem from 'components/DrawerItem.vue'
 type drawItemType = {
-  name: string;
-  icon: string;
-  index: number;
-  to: string;
-};
+  name: string
+  icon: string
+  index: number
+  to: string
+}
 
 const drawItems = ref<drawItemType[]>([
   {
@@ -27,12 +27,18 @@ const drawItems = ref<drawItemType[]>([
     index: 3,
     to: 'main/vacation',
   },
-]);
-const drawer = ref(false);
+  {
+    name: '인증?',
+    icon: 'done',
+    index: 3,
+    to: 'main/test',
+  },
+])
+const drawer = ref(false)
 
 const toggleLeftDrawer = () => {
-  drawer.value = !drawer.value;
-};
+  drawer.value = !drawer.value
+}
 </script>
 
 <template>

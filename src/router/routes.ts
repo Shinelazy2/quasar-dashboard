@@ -1,7 +1,8 @@
-import { RouteRecordRaw } from 'vue-router';
-import VacationPage from 'components/VacationPage.vue';
-import NotionClone from 'components/NotionClone.vue';
-import MainLayout from 'layouts/MainLayout.vue';
+import { RouteRecordRaw } from 'vue-router'
+import VacationPage from 'components/VacationPage.vue'
+import NotionClone from 'components/NotionClone.vue'
+import MainLayout from 'layouts/MainLayout.vue'
+import TestLayout from 'layouts/TestLayout.vue'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -25,6 +26,17 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/main/test',
+    component: TestLayout,
+    // children: [
+    //   { path: 'notion', component: NotionClone },
+    //   {
+    //     path: 'vacation',
+    //     component: VacationPage,
+    //   },
+    // ],
+  },
 
   // Always leave this as last one,
   // but you can also remove it
@@ -32,6 +44,6 @@ const routes: RouteRecordRaw[] = [
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
   },
-];
+]
 
-export default routes;
+export default routes

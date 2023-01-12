@@ -1,59 +1,55 @@
 <script setup lang="ts">
 //
 // import { useQuasar } from 'quasar';
-import AuthService, { LoginInfo } from 'src/derectives/axios.api';
-import { reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useAuthStore } from 'stores/example-store';
-import BaseDialog from 'src/components/BaseDialog.vue';
-import axios from 'axios';
+import AuthService, { LoginInfo } from 'src/derectives/axios.api'
+import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from 'stores/example-store'
+import BaseDialog from 'src/components/BaseDialog.vue'
+import axios from 'axios'
 
-const router = useRouter();
-const authStore = useAuthStore();
+const router = useRouter()
+const authStore = useAuthStore()
 // const $q = useQuasar();
 
-const email = ref(null);
-const password = ref(null);
-const accept = ref(false);
-const alreadyJoinUs = ref(false);
+const email = ref(null)
+const password = ref(null)
+const accept = ref(false)
+const alreadyJoinUs = ref(false)
 const loginInfo = reactive<LoginInfo>({
   loginId: '',
   password: '',
-});
+})
 const onSubmit = async () => {
   try {
     const isLogin = await AuthService.login(
       loginInfo.loginId,
-      loginInfo.password
-    );
-    console.log('🚀 ~ file: LoginForm.vue:29 ~ onSubmit ~ isLogin', isLogin);
+      loginInfo.password,
+    )
+    console.log('🚀 ~ file: LoginForm.vue:29 ~ onSubmit ~ isLogin', isLogin)
 
-    if (isLogin.status === 200) {
-      authStore.loginUser(
-        loginInfo.loginId,
-        isLogin.data.access_token,
-        isLogin.data.refresh_token
-      );
-      router.push('/main');
+    if (isLogin.status === 201) {
+      authStore.loginUser(loginInfo.loginId)
+      router.push('/main')
     }
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      const { response } = error;
-      if (response?.status === 403) alreadyJoinUs.value = true;
+      const { response } = error
+      if (response?.status === 403) alreadyJoinUs.value = true
       console.log(
         '🚀 ~ file: LoginLayout.vue ~ line 43 ~ onSubmit ~ response?.status',
-        response?.status
-      );
-      console.log('잘못된 아이디 : ', response);
+        response?.status,
+      )
+      console.log('잘못된 아이디 : ', response)
     }
   }
-};
+}
 
 const onReset = () => {
-  email.value = null;
-  password.value = null;
-  accept.value = false;
-};
+  email.value = null
+  password.value = null
+  accept.value = false
+}
 </script>
 <template>
   <div>
@@ -68,7 +64,7 @@ const onReset = () => {
           placeholder="Enter Email"
           v-model="loginInfo.loginId"
           lazy-rules
-          :rules="[(val) => (val && val.length > 0) || 'Please type something']"
+          :rules="[val => (val && val.length > 0) || 'Please type something']"
         />
 
         <q-input
@@ -77,7 +73,7 @@ const onReset = () => {
           type="text"
           v-model="loginInfo.password"
           lazy-rules
-          :rules="[(val) => (val && val.length > 0) || 'Please type something']"
+          :rules="[val => (val && val.length > 0) || 'Please type something']"
         />
         <h6 class="text-left">Having trouble in sign in?</h6>
         <div class="row">
